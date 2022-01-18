@@ -22,6 +22,9 @@ public class H2Application {
 			repository.save(new User("Jose", 24));
 			repository.save(new User("Esteban", 27));
 			repository.save(new User("Juan", 35));
+			repository.save(new User("Matias", 25));
+			repository.save(new User("Nina", 23));
+			repository.save(new User("Camila", 23));
 		};
 	}
 
