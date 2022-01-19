@@ -1,8 +1,20 @@
 package com.coderhouse.h2.model;
 
+import lombok.*;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 @Entity
+@ToString
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor(staticName = "of")
+@NoArgsConstructor
 @Table(name = "user")
 public class User {
 
@@ -11,35 +23,11 @@ public class User {
     private Long id;
     private String name;
     private int age;
+    private Date birthDate;
+    private String phone;
+    @OneToMany(mappedBy = "id")
+    private List<Role> roles;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Country country;
 
-    public User() {}
-
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

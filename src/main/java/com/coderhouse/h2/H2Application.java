@@ -1,8 +1,6 @@
 package com.coderhouse.h2;
 
-import com.coderhouse.h2.model.Category;
 import com.coderhouse.h2.model.User;
-import com.coderhouse.h2.repository.CategoryRepository;
 import com.coderhouse.h2.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,12 +17,12 @@ public class H2Application {
 	@Bean
 	public CommandLineRunner loadData(UserRepository repository) {
 		return (args) -> {
-			repository.save(new User("Jose", 24));
-			repository.save(new User("Esteban", 27));
-			repository.save(new User("Juan", 35));
-			repository.save(new User("Matias", 25));
-			repository.save(new User("Nina", 23));
-			repository.save(new User("Camila", 23));
+			repository.save(User.builder().name("Jose").age(24).build());
+			repository.save(User.builder().name("Esteban").age(28).build());
+			repository.save(User.builder().name("Juan").age(26).build());
+			repository.save(User.builder().name("Matias").age(27).build());
+			repository.save(User.builder().name("Nina").age(19).build());
+			repository.save(User.builder().name("Camila").age(20).build());
 		};
 	}
 
